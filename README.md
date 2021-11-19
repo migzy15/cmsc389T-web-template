@@ -1,3 +1,4 @@
 # cmsc389T-web-template
 
-Website Template for Project 5
+Part 1 Changes:
+I added an additional link to my twitter. 
