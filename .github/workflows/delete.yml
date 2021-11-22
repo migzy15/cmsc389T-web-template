@@ -1,19 +1,18 @@
-
-name: clone workflow
+name: delete workflow
 on: 
-  workflow_dispatch:   
+  workflow_dispatch:
 jobs:
   job_one:
-    name: Clone
+    name: Delete
     runs-on: ubuntu-latest
     steps:
-      - name: Clone
+      - name: Delete
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }} 
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port:  ${{ secrets.PORT }}
+          port: ${{ secrets.PORT }}
           script: |
-              cd ../pub
-              git clone git@github.com:migzy15/migzy15.github.io.git
+              cd ../pub/
+              rm -rf migzy15.github.io

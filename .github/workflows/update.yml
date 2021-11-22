@@ -1,19 +1,19 @@
-
-name: clone workflow
+name: update workflow
 on: 
-  workflow_dispatch:   
+  push:
+    branches: [main]
 jobs:
   job_one:
-    name: Clone
+    name: Update
     runs-on: ubuntu-latest
     steps:
-      - name: Clone
+      - name: Update
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }} 
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          port:  ${{ secrets.PORT }}
+          port: ${{ secrets.PORT }}
           script: |
-              cd ../pub
-              git clone git@github.com:migzy15/migzy15.github.io.git
+              cd ../pub/migzy15.github.io
+              git pull
